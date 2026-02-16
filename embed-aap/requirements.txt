@@ -1,0 +1,15 @@
+# Flask Image Similarity API
+
+# Flask-based REST API for image similarity search using Supabase storage and PostgreSQL with pgvector.
+
+## Dependencies
+
+flask==3.1.0
+flask-cors==5.0.0
+psycopg2-binary==2.9.10
+python-dotenv==1.0.1
+requests==2.32.3
+Pillow==11.0.0
+numpy==2.2.1
+pgvector==0.3.6
+gunicorn==23.0.0
