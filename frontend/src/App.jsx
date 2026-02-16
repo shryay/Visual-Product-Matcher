@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import config from './config'
 
 function App() {
   const [uploadMethod, setUploadMethod] = useState('file') // 'file' or 'url'
@@ -10,7 +11,7 @@ function App() {
   const [results, setResults] = useState(null)
   const [error, setError] = useState(null)
 
-  const API_BASE_URL = 'https://flask-image-similarity.onrender.com'
+  const API_BASE_URL = config.backendUrl
 
   const handleFileChange = (e) => {
     const file = e.target.files[0]
@@ -56,13 +57,13 @@ function App() {
 
     try {
       const formData = new FormData()
-      
+
       if (uploadMethod === 'file' && imageFile) {
         formData.append('image', imageFile)
       } else if (uploadMethod === 'url' && imageUrl) {
         formData.append('imageUrl', imageUrl)
       }
-      
+
       formData.append('similarityThreshold', similarityThreshold)
 
       console.log('Sending request to:', `${API_BASE_URL}/api/search`)
@@ -134,7 +135,7 @@ function App() {
         {/* Upload Section */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Upload Your Image</h2>
-          
+
           {/* Upload Method Toggle */}
           <div className="flex gap-2 mb-6">
             <button
@@ -143,11 +144,10 @@ function App() {
                 setImageUrl('')
                 setPreviewUrl(null)
               }}
-              className={`flex-1 py-3 px-4 rounded-xl font-medium transition-all ${
-                uploadMethod === 'file'
+              className={`flex-1 py-3 px-4 rounded-xl font-medium transition-all ${uploadMethod === 'file'
                   ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+                }`}
             >
               <div className="flex items-center justify-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,11 +162,10 @@ function App() {
                 setImageFile(null)
                 setPreviewUrl(null)
               }}
-              className={`flex-1 py-3 px-4 rounded-xl font-medium transition-all ${
-                uploadMethod === 'url'
+              className={`flex-1 py-3 px-4 rounded-xl font-medium transition-all ${uploadMethod === 'url'
                   ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+                }`}
             >
               <div className="flex items-center justify-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

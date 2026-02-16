@@ -4,3 +4,4 @@ embed-aap/.env
 
 *node_modules
 *dist
+frontend/.env
