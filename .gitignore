@@ -1,3 +1,6 @@
 backend/src/main/resources/application.yaml
 backend/target/classes/application.yaml
 embed-aap/.env
+
+*node_modules
+*dist
