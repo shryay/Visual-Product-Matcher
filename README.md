@@ -250,5 +250,3 @@ This avoids storing binary images in PostgreSQL and keeps database optimized for
 * Docker Compose
 
 ---
-
-Tell me what you want next, Shreya 🚀
